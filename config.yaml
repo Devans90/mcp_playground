@@ -1,0 +1,76 @@
+server:
+  transport: "both"
+  host: "0.0.0.0"
+  port: 8080
+  enable_dash: true
+
+permissions:
+  consent_mode: "require"
+  sandbox_root: "./sandbox"
+  always_allow_reads: true
+  require_consent_for_costs: true
+
+openai:
+  base_url: null
+
+bedrock:
+  region: null
+  profile: null
+
+local:
+  base_url: "http://localhost:11434"
+
+vector:
+  backend: "chroma"
+  chroma_path: "./data/chroma"
+  sqlite_path: "./data/embeddings.sqlite3"
+  embedding_model: "text-embedding-3-small"
+
+storage:
+  sqlite_path: "./data/app.sqlite3"
+
+observability:
+  json_logs: true
+  opentelemetry_enabled: true
+  service_name: "fastmcp-assistant"
+
+search:
+  provider: "tavily"
+  custom_base_url: null
+
+google_calendar:
+  enabled: true
+  oauth_client_secret_path: "./secrets/google_client_secret.json"
+  token_path: "./secrets/google_token.json"
+  calendar_id: "primary"
+
+email:
+  smtp_host: null
+  smtp_port: 587
+  username: null
+  password: null
+  from_address: null
+  tls: true
+
+slack:
+  webhook_url: null
+
+teams:
+  webhook_url: null
+
+limits:
+  per_request_max_tokens: 4000
+  per_request_timeout_s: 20
+  max_tool_calls_per_turn: 4
+
+default_route:
+  provider: "openai"
+  model: "o4-mini"
+  temperature: 0.2
+  reasoning: false
+
+routing_rules:
+  by_task:
+    summarize:
+      provider: "openai"
+      model: "o4-mini"

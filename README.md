@@ -1,1 +1,37 @@
 # mcp_playground
+
+# Project layout suggestion:
+#   pyproject.toml
+#   .env.example
+#   config.example.yaml
+#   app/
+#     __init__.py
+#     config.py
+#     router.py
+#     providers/
+#       __init__.py
+#       openai_provider.py
+#       bedrock_provider.py
+#       ollama_provider.py
+#     storage/
+#       __init__.py
+#       memory_store.py
+#       vector_index.py
+#     security/
+#       __init__.py
+#       consent.py
+#       sandbox.py
+#       pii.py
+#     tools/
+#       __init__.py
+#       info.py
+#       personal.py
+#       calendar.py
+#       system.py
+#       comms.py
+#     observability/
+#       __init__.py
+#       telemetry.py
+#     server.py
+#     dash_ui.py
+#   main.py

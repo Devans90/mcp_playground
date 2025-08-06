@@ -1,0 +1,40 @@
+[project]
+name = "fastmcp-assistant"
+version = "0.1.0"
+description = "Personal Assistant server with model routing (OpenAI/Bedrock/Ollama), SQLite + Chroma, FastAPI + optional Dash."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "pydantic>=2",
+  "python-dotenv",
+  "pyyaml",
+  "httpx",
+  "tenacity",
+  "opentelemetry-sdk",
+  "opentelemetry-api",
+  "opentelemetry-instrumentation-fastapi",
+  "opentelemetry-exporter-otlp",
+  "dash",
+  "plotly",
+  "chromadb", # optional at runtime (we catch import errors)
+  "openai>=1.0.0",
+  "boto3", # Bedrock optional
+  "google-api-python-client",
+  "google-auth-httplib2",
+  "google-auth-oauthlib",
+  "tavily-python", # web search
+  "pyperclip>=1.9.0",
+]
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["openaimcp"]  # for src/openaimcp.py
+
+[tool.setuptools.packages.find]
+where = ["src"]
